@@ -158,7 +158,6 @@
   </div>
 </div>
 
-<!-- Formulario de registrar -->
             <button
               class="navbar-toggler"
               type="button"
@@ -173,94 +172,121 @@
         </div>
       </nav>
     </section>
+<!-- Formulario de buscar informacion -->
     <section id="hero-section">
-      <div class="container-fluid>
-      <div class="row align-items-center business-tagline pl-4 pr-4 text-center">
-        <div class="col-lg-7 mt-4">
-          <h1 class="hero-titular">Formulario de registrar</h1>
+      <div class="container-fluid"></div>
 
-        <form onsubmit="validate(event)">
-            <div class="form-row">
-
-                <div class="form-group col-md-6">
-                    <label for="inputName">Nombre *</label>
-                    <input type="text" class="form-control" id="inputName" placeholder="Nombre">
-                    <div class="invalid-feedback">
-                        Por favor introduzca su nombre .
-                    </div>
-                </div>
-
-                <div class="form-group col-md-6">
-                    <label for="inputSurnames">Apellidos * </label>
-                    <input type="text" class="form-control" id="inputSurnames" placeholder="Apellidos"> 
-                    <div class="invalid-feedback">
-                        Por favor introduzca sus apellidos.
-                    </div>
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="form-group col-md-12">
-                    <label for="inputEmail">Email *</label>
-                    <input type="text" class="form-control" id="inputEmail" placeholder="Email" >
-                    <div class="invalid-feedback">
-                        Por favor introduzca su email.
-                    </div>
-                  </div>
-            </div>
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="inputCity">Ciudad</label>
-                    <input type="text" class="form-control" id="inputCity" placeholder="Ciudad" >
-                  </div>
-    
-                  <div class="form-group col-md-6">
-                    <label for="inputProvince">Provincia</label>
-                    <select id="inputProvince" class="form-control">
-                      <option selected>Provincia</option>
-                      <option>Alicante</option>
-                      <option>Barcelona</option>
-                      <option>Girona</option>
-                      <option>Madrid</option>
-                      <option>Sevilla</option>
-                      <option>Valencia</option>
-                      <option>Zaragoza</option>
-                    </select>
-                  </div>
-            </div>
-
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="inputPassword">Contraseña *</label>
-                    <input type="password" class="form-control" id="inputPassword" placeholder="La contraseña debe tener al menos 8 caracteres">
-                    <div class="invalid-feedback">
-                        Por favor introduzca una contraseña válida.
-                    </div>
-                </div>
-                <div class="form-group col-md-6">
-                    <label for="inputPassword2">Vuelve a escribir la contraseña *</label>
-                    <input type="password" class="form-control" id="inputPassword2"><div class="invalid-feedback">
-                        Las contraseñas no coinciden.
-                    </div>
-                </div>
-            </div>
+        <h1 class="text-center mt-4">Validaciones con JavaScript</h1>
+        <div class="row form-container-fluid mx-5">
             <div class="col-12">
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="" id="invalidCheck">
-                  <label class="form-check-label" for="invalidCheck">
-                    Acepto los términos y condiciones
-                  </label>
-                  <div class="invalid-feedback">
-                    Debe aceptar los términos y condiciones
-                </div>
+                <h2 class="text-center mt-3">Busqueda</h2>
+                <p>Validar el formulari de cerca. <br>La paraula introduïda haurà de ser obligatòria i contenir més de 3
+                    caràcters.</p>
+                <form onsubmit="return submitSearchForm()" id="searchForm">
+                    <div class="input-group">
+                        <input id="searchInput" type="text" class="form-control" placeholder="Buscar tratamientos"
+                            aria-label="Recipient's username" aria-describedby="basic-addon2">
+                    </div>
+                    <div class="invalid-feedback error-message" id="lessThree">
+                        La palabra tiene que tener más de 3 caracteres.
+                    </div>
+                    <div class="invalid-feedback error-message" id="noWord">
+                        Este campo es obligatorio.
+                    </div>
+                    <button id="searchBtn" class="btn btn-dark mt-3 mb-4" type="submit">Buscar</button>
+                </form>
             </div>
-            
-            <button type="submit" class="btn btn-secondary mt-2 mb-4">Enviar</button>
-          </form>                         
-                                  
-                                  
+        </div>
+<!-- Formulario de login -->
+        <div class="row form-container mx-5">
+            <div class="col-12">
+                <h2 class="text-center">Formulario de login</h2>
+                <p>Validar el formulari de login (haurà de tenir un camp email i un altre de contrasenya). Condicions:
+                    Els camps email i contrasenya hauran de ser obligatoris. El email haurà de seguir el format estàndard dels email.
+                </p>
+                <form id="loginForm" class="needs-validation" onsubmit="return submitLogin()" novalidate>
+                    <div class="form-row">
+                        <div class="col-md-4 mb-3">
+                            <label for="emailInput">E-mail:</label>
+                            <input type="email" class="form-control" id="emailInput" value="" required>
+                            <div class="invalid-feedback" id="emailNotValid">
+                                Por favor, introduzca una dirección de email válida.
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label for="passInput">Contraseña</label>
+                            <input type="password" class="form-control" id="passInput" value="" required>
+                            <div class="invalid-feedback" id="emailNotValid">
+                                Por favor, introduzca la contraseña.
+                            </div>
+                        </div>
+                    </div>
+                    <button id="loginBtn" class="btn btn-dark" type="submit">Login</button>
+                </form>
+            </div>
+        </div>
+<!-- Formulario de registrar nuevos clientes -->
+        <div class="row form-container mx-5">
+            <div class="col-12">
+                <h2 class="text-center">Formulario de Registro</h2>
+                <p>Validar el formulari de registre (com a mínim haurà de tenir un camp email, contrasenya,
+                    repetició de contrasenya i un desplegable de província).
+                </p>
+                <form id="signupForm" class="needs-validation" onsubmit="return submitSignup()" novalidate>
+                    <div class="form-row">
+                        <div class="col-6">
+                            <label for="signupEmailInput">E-mail:</label>
+                            <input type="email" class="form-control" id="signupEmailInput" value="" required>
+                            <div class="invalid-feedback" id="emailNotValid">
+                                Por favor, introduzca una dirección de email válida.
+                            </div>
+                        </div>
+
+                        <div class="col-6">
+                          <label for="inputProvince">Provincia:</label>
+                          <select id="inputProvince" class="form-control">
+                              <option value=""></option>
+                              <option selected>Barcelona</option>
+                              <option>Girona</option>
+                              <option>Tarragona</option>
+                              <option>Lleida</option>
+                          </select>
+                          <div class="invalid-feedback" id="errorProvince">
+                              Selecciona una província
+                          </div>
+                      </div>
+
+                        <div class="confirm-pass col-6">
+                            <label for="passInput" class="label-pass">Contraseña:</label>
+                            <input type="password" class="form-control" id="passSignUpInput" value="" required>
+                            <div class="invalid-feedback" id="emailNotValid">
+                                Por favor, introduzca la contraseña.
+                            </div>
+                            <label for="passRepeat" class="label-pass mt-2">Repetir la contraseña:</label>
+                            <input type="password" class="form-control" id="passRepeat" value="" required>
+                            <div class="invalid-feedback" id="passNoMatch">
+                                Lo siento, las contraseñas no coinciden.
+                            </div>
+                        </div>
+                        
+                    </div>
+
+                    <div class="col-12 mt-3">
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck">
+                        <label class="form-check-label" for="invalidCheck">
+                          Acepto los términos y condiciones
+                        </label>
+                        <div class="invalid-feedback">
+                          Debe aceptar los términos y condiciones
+                      </div>
+                  </div>
+                    <button id="signupBtn" class="btn btn-dark mt-3 mb-4" type="submit">Crear cuenta</button>
+                </form>
+            </div>
         </div>
     </div>
-   </div>                               </section>
+    <!-- Footer starts here -->
     <footer class="footer">
       <div class="container bottom_border">
         <div class="row">
