@@ -1,3 +1,80 @@
+//Busqueda de los tratamientos
+
+function submitSearchForm() {
+    let wordNotValid = 0;
+    if ((searchInput.value).length === 0) {
+        noWord.classList.remove('invalid-feedback');
+        wordNotValid++;
+    } else if ((searchInput.value).length < 3) {
+        lessThree.classList.remove('invalid-feedback');
+        wordNotValid++;
+    };
+    searchInput.value = '';
+    return wordNotValid === 0 ? true : false;
+};
+
+searchForm.addEventListener('click', event => {
+    if (!lessThree.classList.contains('invalid-feedback')) {
+        lessThree.classList.add('invalid-feedback');
+    };
+    if (!noWord.classList.contains('invalid-feedback')) {
+        noWord.classList.add('invalid-feedback');
+    };
+});
+
+//Login de los usuarios
+
+function validateEmail(email) {
+    let regex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+    return regex.test(email) ? true : false;
+};
+
+function validatePass(pass) {
+    return pass.length < 1 ? false : true;
+};
+
+function submitLogin() {
+    let fielNotValid = 0;
+
+    if (!validatePass(passInput.value) || !validateEmail(emailInput.value)) {
+        fielNotValid++;
+    }
+    if (fielNotValid === 0) {
+        return true;
+    } else {
+        return false;
+    }
+};
+
+emailInput.addEventListener('blur', () => {
+    if (!validateEmail(emailInput.value)) {
+        emailInput.classList.add('is-invalid');
+    } else {
+        emailInput.classList.remove('is-invalid');
+        emailInput.classList.add('is-valid');
+    };
+});
+
+passInput.addEventListener('blur', () => {
+    if (!validatePass(passInput.value)) {
+        passInput.classList.add('is-invalid');
+    } else {
+        passInput.classList.remove('is-invalid');
+        passInput.classList.add('is-valid');
+    };
+});
+
+loginBtn.addEventListener('click', () => {
+    if (!validatePass(passInput.value)) {
+        passInput.classList.add('is-invalid');
+    };
+    if (!validateEmail(emailInput.value)) {
+        emailInput.classList.add('is-invalid');
+    };
+});
+
+//Registro de los nuevos clientes
+
 function validate(event)
 {
     event.preventDefault()
