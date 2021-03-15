@@ -73,7 +73,7 @@ loginBtn.addEventListener('click', () => {
     };
 });
 
-//Registro de los nuevos clientes
+//Registro de nuevos clientes
 
 function validate(event)
 {
